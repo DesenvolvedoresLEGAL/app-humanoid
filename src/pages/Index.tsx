@@ -21,6 +21,7 @@ import {
 } from "lucide-react";
 
 const Index = () => {
+  console.log("HUMANOID Index component loading...");
   const [activeTab, setActiveTab] = useState("dashboard");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -197,102 +198,10 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
-      <div className="flex">
-        {/* Mobile Menu Button */}
-        <div className="lg:hidden fixed top-4 left-4 z-50">
-          <Button
-            variant="outline"
-            size="icon"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="bg-white/10 backdrop-blur-sm border-white/20"
-          >
-            {isMobileMenuOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
-          </Button>
-        </div>
-
-        {/* Desktop Sidebar */}
-        <div className="hidden lg:flex h-screen w-64 bg-gradient-to-b from-slate-900 to-slate-800 border-r border-slate-700 flex-col">
-          <div className="p-6">
-            <div className="flex items-center gap-3">
-              <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
-                <Bot className="h-5 w-5 text-white" />
-              </div>
-              <h1 className="text-xl font-bold text-white">HUMANOID</h1>
-            </div>
-            <p className="text-slate-400 text-sm mt-2">AI Sales Automation</p>
-          </div>
-
-          <nav className="flex-1 px-4">
-            {navItems.map((item) => {
-              const Icon = item.icon;
-              return (
-                <Button
-                  key={item.id}
-                  variant="ghost"
-                  className={cn(
-                    "w-full justify-start mb-2 text-slate-300 hover:text-white hover:bg-slate-700/50",
-                    activeTab === item.id && "bg-gradient-to-r from-blue-500/20 to-purple-600/20 text-white border-r-2 border-blue-500"
-                  )}
-                  onClick={() => setActiveTab(item.id)}
-                >
-                  <Icon className="mr-3 h-4 w-4" />
-                  {item.label}
-                </Button>
-              );
-            })}
-          </nav>
-        </div>
-
-        {/* Mobile Sidebar */}
-        <div className={cn(
-          "lg:hidden fixed inset-0 z-40 transition-opacity duration-300",
-          isMobileMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none"
-        )}>
-          <div className="absolute inset-0 bg-black/50" onClick={() => setIsMobileMenuOpen(false)} />
-          <div className={cn(
-            "absolute left-0 top-0 h-full w-64 bg-gradient-to-b from-slate-900 to-slate-800 transform transition-transform duration-300",
-            isMobileMenuOpen ? "translate-x-0" : "-translate-x-full"
-          )}>
-            <div className="p-6 pt-16">
-              <div className="flex items-center gap-3">
-                <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
-                  <Bot className="h-5 w-5 text-white" />
-                </div>
-                <h1 className="text-xl font-bold text-white">HUMANOID</h1>
-              </div>
-              <p className="text-slate-400 text-sm mt-2">AI Sales Automation</p>
-            </div>
-
-            <nav className="px-4">
-              {navItems.map((item) => {
-                const Icon = item.icon;
-                return (
-                  <Button
-                    key={item.id}
-                    variant="ghost"
-                    className={cn(
-                      "w-full justify-start mb-2 text-slate-300 hover:text-white hover:bg-slate-700/50",
-                      activeTab === item.id && "bg-gradient-to-r from-blue-500/20 to-purple-600/20 text-white border-r-2 border-blue-500"
-                    )}
-                    onClick={() => {
-                      setActiveTab(item.id);
-                      setIsMobileMenuOpen(false);
-                    }}
-                  >
-                    <Icon className="mr-3 h-4 w-4" />
-                    {item.label}
-                  </Button>
-                );
-              })}
-            </nav>
-          </div>
-        </div>
-
-        <div className="flex-1 lg:ml-0">
-          <main className="p-6 lg:p-8">
-            {renderContent()}
-          </main>
-        </div>
+      <div className="p-8 text-center">
+        <h1 className="text-4xl font-bold text-white mb-4">HUMANOID</h1>
+        <p className="text-slate-400 mb-8">AI Sales Automation Platform</p>
+        <div className="text-green-400">✓ Component loaded successfully!</div>
       </div>
     </div>
   );
